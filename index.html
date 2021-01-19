@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="it is app simlier to google stopwatch" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>stopwatch</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="stopwatch">
+        <div class="stopwatch__header active">
+          <h2 class="stopwatch__heading">
+            <span class="stopwatch-icon"
+              ><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
+                <path d="M0 0h24v24H0z" fill="none" />
+                <path
+                  fill="currentcolor"
+                  d="M15 1H9v2h6V1zm-4 13h2V8h-2v6zm8.03-6.61l1.42-1.42c-.43-.51-.9-.99-1.41-1.41l-1.42 1.42C16.07 4.74 14.12 4 12 4c-4.97 0-9 4.03-9 9s4.02 9 9 9 9-4.03 9-9c0-2.12-.74-4.07-1.97-5.61zM12 20c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z"
+                /></svg></span
+            >STOPWATCH
+          </h2>
+        </div>
+        <div class="stopwatch__screen">
+          <span class="displayer days__screen"></span>
+          <span class="day-unit unit__screen">d</span>
+          <span class="displayer hours__screen"></span>
+          <span class="hours-unit unit__screen">h</span>
+          <span class="displayer minutes__screen"></span>
+          <span class="minute-unit unit__screen">m</span>
+          <span class="displayer seconds__screen">0</span>
+          <span class="second-unit unit__screen">s</span>
+          <span class="displayer millisecond__screen"> 00 </span>
+        </div>
+        <div class="stopwatch__footer">
+          <button class="switch main-btn" id="switch" data-state="false">
+            <span class="start" id="start">START</span>
+            <span class="stop" id="stop">STOP</span>
+          </button>
+          <button class="reset secondary-btn" id="reset">RESET</button>
+          <span class="stopwatch__maximize-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
+              <path d="M0 0h24v24H0z" fill="none" />
+              <path
+                d="M3 5v4h2V5h4V3H5c-1.1 0-2 .9-2 2zm2 10H3v4c0 1.1.9 2 2 2h4v-2H5v-4zm14 4h-4v2h4c1.1 0 2-.9 2-2v-4h-2v4zm0-16h-4v2h4v4h2V5c0-1.1-.9-2-2-2z"
+              />
+            </svg>
+          </span>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
