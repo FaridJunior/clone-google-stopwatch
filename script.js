@@ -9,12 +9,17 @@
   const millisecondScreen = document.querySelector(".millisecond__screen");
 
   const stopWatch = (onChange) => {
-    // count in this timer = 10 ms
     let count = 0;
+    let timeInterval; // time  between two increase function
+    let startTime;
     let interval;
+
     function increase() {
-      count++;
+      const now = Date.now();
+      timeInterval = now - startTime;
+      count = count + timeInterval;
       onChange();
+      startTime = now;
     }
     function decrease() {
       count--;
@@ -26,7 +31,9 @@
     }
     function start() {
       clearStopWatchInterval();
-      interval = setInterval(increase, 10);
+      // setInterval is not trusted https://stackoverflow.com/questions/29971898/how-to-create-an-accurate-timer-in-javascript
+      startTime = Date.now();
+      interval = setInterval(increase, 50);
       onChange();
     }
     function stop() {
@@ -39,6 +46,7 @@
     function reset() {
       stop();
       initCount();
+      console.log(count);
       onChange();
     }
     function getCount() {
@@ -54,17 +62,17 @@
 
   function handleChange() {
     const count = getCount();
-    const ms = count * 10;
     //    I think it is not the best way to calculat seconds and minutes and hours
-    const second = Math.floor(count / 100) % 60;
-    const minute = Math.floor(count / 6000) % 60;
-    const hour = Math.floor(count / 3.6e5) % 24;
-    const days = Math.floor(count / 8.64e6);
-    millisecondScreen.textContent = count % 100;
+    const second = Math.floor(count / 1000) % 60;
+    const minute = Math.floor(count / 60000) % 60;
+    const hour = Math.floor(count / 3.6e6) % 24;
+    const days = Math.floor(count / 8.64e7);
+
+    millisecondScreen.textContent = Math.floor((count / 10) % 100);
     secondsScreen.textContent = second;
-    minute > 0 ? (minutesScreen.textContent = minute) : {};
-    hour > 0 ? (hoursScreen.textContent = hour) : {};
-    days > 0 ? (daysScreen.textContent = days) : {};
+    minutesScreen.textContent = minute ? minute : "";
+    hoursScreen.textContent = hour ? hour : "";
+    daysScreen.textContent = days ? days : "";
   }
 
   stopWatchSwitch.addEventListener("click", (e) => {
