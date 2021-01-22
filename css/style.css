@@ -25,9 +25,20 @@
 
 .stopwatch {
   font-family: arial;
-  width: 600px;
+  max-width: 600px;
+  width: 100%;
   border: 1px solid var(--light-gray);
   border-radius: 0.25rem;
+  -webkit-transition: all 300ms;
+  transition: all 300ms;
+}
+
+@media (max-width: 800px) {
+  .stopwatch {
+    border-radius: 16px;
+    -webkit-box-shadow: 0 0px 3.7px rgba(0, 0, 0, 0.009), 0 0px 7.2px rgba(0, 0, 0, 0.016), 0 0px 11.9px rgba(0, 0, 0, 0.023), 0 0px 30px rgba(0, 0, 0, 0.04);
+            box-shadow: 0 0px 3.7px rgba(0, 0, 0, 0.009), 0 0px 7.2px rgba(0, 0, 0, 0.016), 0 0px 11.9px rgba(0, 0, 0, 0.023), 0 0px 30px rgba(0, 0, 0, 0.04);
+  }
 }
 
 .stopwatch__header {
