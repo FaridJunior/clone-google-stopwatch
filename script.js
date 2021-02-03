@@ -1,12 +1,17 @@
 (function () {
   const screen = document.querySelector(".stopwatch__screen");
-  const stopWatchSwitch = document.querySelector("#switch");
-  const resetStopWatch = document.querySelector("#reset");
+  const stopWatchSwitch = document.querySelector(".stopwatch-component #switch");
+  const resetStopWatch = document.querySelector(".stopwatch-component #reset");
+  const timerSwitch = document.querySelector(".timer-component #switch");
+  const resetTimer = document.querySelector(".timer-component #reset");
   const daysScreen = document.querySelector(".days__screen");
   const hoursScreen = document.querySelector(".hours__screen");
   const minutesScreen = document.querySelector(".minutes__screen");
   const secondsScreen = document.querySelector(".seconds__screen");
   const millisecondScreen = document.querySelector(".millisecond__screen");
+  const watchButtons = document.querySelectorAll(".watch__button");
+  const stopwatchComponent = document.querySelector(".stopwatch-component");
+  const timerComponent = document.querySelector(".timer-component");
 
   const stopWatch = (onChange) => {
     let count = 0;
@@ -89,4 +94,25 @@
     stopWatchSwitch.dataset.state = "false";
     reset();
   });
+
+  function toggleBetwenStopWatchAndTimer(e) {
+    const element = e.currentTarget;
+    if (element.dataset.active === "true") return;
+    element.setAttribute("data-active", "true");
+    if (element.dataset.type === "timer") {
+      // active timer
+      watchButtons[1].setAttribute("data-active", "false");
+      stopwatchComponent.style.display = "none";
+      timerComponent.style.display = "block";
+    } else {
+      // active stop watch
+      watchButtons[0].setAttribute("data-active", "false");
+      timerComponent.style.display = "none";
+      stopwatchComponent.style.display = "block";
+    }
+  }
+
+  watchButtons.forEach((btn) =>
+    btn.addEventListener("click", toggleBetwenStopWatchAndTimer, false)
+  );
 })();

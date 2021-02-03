@@ -23,7 +23,7 @@
   place-items: center;
 }
 
-.stopwatch {
+.watch {
   font-family: arial;
   max-width: 600px;
   width: 100%;
@@ -34,38 +34,46 @@
 }
 
 @media (max-width: 800px) {
-  .stopwatch {
+  .watch {
     border-radius: 16px;
     -webkit-box-shadow: 0 0px 3.7px rgba(0, 0, 0, 0.009), 0 0px 7.2px rgba(0, 0, 0, 0.016), 0 0px 11.9px rgba(0, 0, 0, 0.023), 0 0px 30px rgba(0, 0, 0, 0.04);
             box-shadow: 0 0px 3.7px rgba(0, 0, 0, 0.009), 0 0px 7.2px rgba(0, 0, 0, 0.016), 0 0px 11.9px rgba(0, 0, 0, 0.023), 0 0px 30px rgba(0, 0, 0, 0.04);
   }
 }
 
-.stopwatch__header {
-  padding: 1rem;
+.watch__header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   text-align: center;
   border-bottom: var(--main-border);
 }
 
-.stopwatch__header.active {
-  -webkit-box-shadow: inset 0px -2px var(--main-color);
-          box-shadow: inset 0px -2px var(--main-color);
-}
-
-.stopwatch__heading {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+.watch__button {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
   -webkit-box-align: end;
       -ms-flex-align: end;
           align-items: flex-end;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
   font-size: 1.2rem;
   font-weight: 300;
   letter-spacing: 1px;
   color: var(--main-color);
+  padding: 1rem;
+  border: 0;
+  background: transparent;
+}
+
+.watch__button[data-active="true"] {
+  -webkit-box-shadow: inset 0px -2px var(--main-color);
+          box-shadow: inset 0px -2px var(--main-color);
 }
 
 .stopwatch-icon {
@@ -148,6 +156,10 @@
 }
 
 [data-state="true"] .start {
+  display: none;
+}
+
+.timer-component {
   display: none;
 }
 /*# sourceMappingURL=style.css.map */

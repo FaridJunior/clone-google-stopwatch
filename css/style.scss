@@ -20,7 +20,7 @@
   place-items: center;
 }
 
-.stopwatch {
+.watch {
   font-family: arial;
   max-width: 600px;
   width: 100%;
@@ -34,24 +34,28 @@
   }
 }
 
-.stopwatch__header {
-  padding: 1rem;
+.watch__header {
+  display: flex;
   text-align: center;
   border-bottom: var(--main-border);
 }
 
-.stopwatch__header.active {
-  box-shadow: inset 0px -2px var(--main-color);
-}
-
-.stopwatch__heading {
-  display: flex;
+.watch__button {
+  display: inline-flex;
   align-items: flex-end;
   justify-content: center;
+  flex: 1;
   font-size: 1.2rem;
   font-weight: 300;
   letter-spacing: 1px;
   color: var(--main-color);
+  padding: 1rem;
+  border: 0;
+  background: transparent;
+}
+
+.watch__button[data-active="true"] {
+  box-shadow: inset 0px -2px var(--main-color);
 }
 
 .stopwatch-icon {
@@ -121,5 +125,9 @@
   display: none;
 }
 [data-state="true"] .start {
+  display: none;
+}
+
+.timer-component {
   display: none;
 }
