@@ -50,6 +50,7 @@
 }
 
 .watch__button {
+  cursor: pointer;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
@@ -86,25 +87,31 @@
           align-items: center;
 }
 
-.stopwatch__screen {
+.stopwatch__screen,
+.timer__screen {
   color: var(--main-black);
   padding: 2rem;
 }
 
-.stopwatch__screen .unit__screen {
+.stopwatch__screen .unit__screen,
+.timer__screen .unit__screen {
   font-size: 1.8rem;
 }
 
-.stopwatch__screen .displayer {
+.stopwatch__screen .displayer,
+.timer__screen .displayer {
   font-size: 4rem;
 }
 
-.stopwatch__screen .millisecond__screen {
+.stopwatch__screen .millisecond__screen,
+.timer__screen .millisecond__screen {
   font-size: 2rem;
 }
 
 .stopwatch__screen .displayer:empty,
-.stopwatch__screen .displayer:empty + .unit__screen {
+.stopwatch__screen .displayer:empty + .unit__screen,
+.timer__screen .displayer:empty,
+.timer__screen .displayer:empty + .unit__screen {
   display: none;
 }
 
@@ -160,6 +167,31 @@
 }
 
 .timer-component {
+  display: none;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.timer-input {
+  -moz-appearance: textfield;
+  display: none;
+}
+
+.timer-input:focus {
+  border: 0;
+  font-size: 1.5rem;
+  padding: 0.5rem 0.5rem 0.2rem 0.5rem;
+  margin: 3rem;
+  border-bottom: 3px solid var(--main-color);
+  -webkit-transform: translatey(0px);
+          transform: translatey(0px);
+}
+
+.timer-input:focus ~ .timer__screen {
   display: none;
 }
 /*# sourceMappingURL=style.css.map */

@@ -41,6 +41,7 @@
 }
 
 .watch__button {
+  cursor: pointer;
   display: inline-flex;
   align-items: flex-end;
   justify-content: center;
@@ -53,7 +54,11 @@
   border: 0;
   background: transparent;
 }
-
+// .timer-component,
+// .stopwatch-component {
+//   max-height: 198px;
+//   overflow: hidden;
+// }
 .watch__button[data-active="true"] {
   box-shadow: inset 0px -2px var(--main-color);
 }
@@ -63,12 +68,13 @@
   display: inline-flex;
   align-items: center;
 }
-.stopwatch__screen {
+.stopwatch__screen,
+.timer__screen {
   color: var(--main-black);
   padding: 2rem;
-  .seconds__screen {
-    // font-size: 4rem;
-  }
+  // .seconds__screen {
+  //   // font-size: 4rem;
+  // }
   .unit__screen {
     font-size: 1.8rem;
   }
@@ -129,5 +135,28 @@
 }
 
 .timer-component {
+  display: none;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.timer-input {
+  -moz-appearance: textfield;
+  display: none;
+}
+
+.timer-input:focus {
+  border: 0;
+  font-size: 1.5rem;
+  padding: 0.5rem 0.5rem 0.2rem 0.5rem;
+  margin: 3rem;
+  border-bottom: 3px solid var(--main-color);
+  transform: translatey(0px);
+}
+.timer-input:focus ~ .timer__screen {
   display: none;
 }

@@ -38,7 +38,24 @@
         </div>
 
         <div class="timer-component">
-          <div class="stopwatch__screen">Timer</div>
+          <input
+            type="number"
+            name="timer-input"
+            id="timer-input"
+            class="timer-input"
+            placeholder="Number of minutes"
+          />
+          <div class="timer__screen">
+            <span class="displayer days__screen"></span>
+            <span class="day-unit unit__screen">d</span>
+            <span class="displayer hours__screen"></span>
+            <span class="hours-unit unit__screen">h</span>
+            <span class="displayer minutes__screen"></span>
+            <span class="minute-unit unit__screen">m</span>
+            <span class="displayer seconds__screen">0</span>
+            <span class="second-unit unit__screen">s</span>
+            <span class="displayer millisecond__screen"> 00 </span>
+          </div>
           <div class="stopwatch__footer">
             <button class="switch main-btn" id="switch" data-state="false">
               <span class="start" id="start">START</span>
