@@ -80,8 +80,6 @@ function setTimer() {
   const millisecondScreen = document.querySelector(".timer-component .millisecond__screen");
   const { start, stop, reset, getCount, getState } = watch(handleChange);
 
-  timerInput.focus();
-
   function handleChange() {
     let remain = time - getCount();
 
@@ -127,6 +125,7 @@ function setTimer() {
     time = parseInt(e.currentTarget.value) * 60000;
     handleChange();
   });
+  handleChange();
 }
 
 function watch(onChange) {

@@ -14,6 +14,12 @@
   margin: 0;
 }
 
+@media (max-width: 800px) {
+  :root {
+    font-size: 14px;
+  }
+}
+
 .container {
   width: 90%;
   margin: 0 auto;
@@ -35,9 +41,13 @@
 
 @media (max-width: 800px) {
   .watch {
-    border-radius: 16px;
+    border-radius: 8px;
     -webkit-box-shadow: 0 0px 3.7px rgba(0, 0, 0, 0.009), 0 0px 7.2px rgba(0, 0, 0, 0.016), 0 0px 11.9px rgba(0, 0, 0, 0.023), 0 0px 30px rgba(0, 0, 0, 0.04);
             box-shadow: 0 0px 3.7px rgba(0, 0, 0, 0.009), 0 0px 7.2px rgba(0, 0, 0, 0.016), 0 0px 11.9px rgba(0, 0, 0, 0.023), 0 0px 30px rgba(0, 0, 0, 0.04);
+  }
+  .watch .timer-input {
+    margin: 3rem 0.5rem;
+    max-width: 250px;
   }
 }
 
