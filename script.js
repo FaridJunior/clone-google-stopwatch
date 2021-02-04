@@ -109,22 +109,28 @@ function setTimer() {
       timerSwitch.dataset.state = "true";
     }
   });
+
   resetTimer.addEventListener("click", () => {
     timerSwitch.dataset.state = "false";
     reset();
   });
   screen.addEventListener("click", () => {
     timerInput.style.display = "inline";
+    if (getState()) {
+      timerSwitch.click();
+    }
     timerInput.focus();
   });
 
   timerInput.addEventListener("blur", () => {
     timerInput.style.display = "none";
   });
-  timerInput.addEventListener("change", (e) => {
-    time = parseInt(e.currentTarget.value) * 60000;
+
+  timerInput.addEventListener("keydown", (e) => {
+    time = (parseInt(e.currentTarget.value + e.key) || 0) * 60000;
     handleChange();
   });
+
   handleChange();
 }
 
