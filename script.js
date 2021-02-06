@@ -128,7 +128,7 @@ function setTimer() {
 
   timerInput.addEventListener("keydown", (e) => {
     time = (parseInt(e.currentTarget.value + e.key) || 0) * 60000;
-    handleChange();
+    reset();
   });
 
   handleChange();
